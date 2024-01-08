@@ -1,0 +1,213 @@
+/* styles.css */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #282c34; /* Dark background color */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.container {
+  height: 100vh;
+  padding: 20px;
+  background-color: #2c303a; /* Darker container background color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.main-header {
+  color: #61dafb; /* Light blue text color */
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sub-header {
+  color: #61dafb; /* Light blue text color */
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.add-payment-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Added margin between form and payment list */
+}
+
+label {
+  margin-bottom: 5px;
+  color: #bbb;
+}
+
+input[type="number"] {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #444; /* Darker border color */
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  background-color: #2c303a; /* Darker input background color */
+  color: #fff;
+  -moz-appearance: textfield; /* Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus {
+  border-color: #61dafb; /* Light blue focus color */
+}
+
+button {
+  padding: 12px;
+  background-color: #61dafb; /* Light blue button color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #4fa3d1; /* Slightly darker blue on hover */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #444; /* Darker border color */
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #e57373; /* Light red button color */
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+li button:hover {
+  background-color: #c64f4f; /* Slightly darker red on hover */
+}
+
+.total-amount {
+  margin-top: 20px;
+  margin-bottom: 20px; /* Added margin between total amount and payment list */
+  text-align: center;
+  font-size: 1.4em;
+  color: #61dafb; /* Light blue text color */
+  font-weight: bold;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50; /* Green color for the progress bar */
+  border-radius: 4px;
+}
+
+.payment-form {
+  background-color: #555; /* Updated background color for the inner container */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  align-items: center; /* Center items horizontally */
+}
+
+.payment-form h2 {
+  color: #61dafb; /* Light blue text color */
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.payment-form label {
+  margin-bottom: 5px;
+  color: #bbb;
+}
+
+.input-container {
+  display: flex;
+  align-items: baseline; /* Align items at the baseline to make the dollar sign and input vertically centered */
+}
+
+.dollar-sign {
+  font-size: 1.5em; /* Adjust the font size of the dollar sign */
+  margin-right: 5px;
+  color: #fff;
+}
+
+.payment-form input[type="text"] {
+  flex: 1; /* Allow the input to take up remaining space */
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #444; /* Darker border color */
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  background-color: #2c303a; /* Darker input background color */
+  color: #fff;
+  font-size: 20px;
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.payment-form input[type="text"]:focus {
+  border-color: #61dafb; /* Light blue focus color */
+}
+
+.payment-form .button-container {
+  display: flex;
+  gap: 10px; /* Adjust the space between buttons */
+}
+
+.payment-form button {
+  padding: 12px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.payment-form button.cancel {
+  background-color: #1a1a1a; /* Darker color for Cancel button */
+  border: 1px solid #61dafb; /* Light blue outline for Cancel button */
+}
+
+.payment-form button:hover {
+  background-color: #4fa3d1; /* Slightly darker blue on hover */
+}
+
+.payment-form button.cancel:hover {
+  background-color: #0d0d0d; /* Darker color for Cancel button on hover */
+}
