@@ -1,12 +1,11 @@
-// PaymentList.js
 import React, { useState } from 'react';
 
 const PaymentList = ({ payments, onDelete }) => {
-  const [showConfirm, setShowConfirm] = useState(false);
+  const [selectedDeleteIndex, setSelectedDeleteIndex] = useState(null);
 
   const handleDeleteClick = (index) => {
-    setShowConfirm(false);
     onDelete(index);
+    setSelectedDeleteIndex(null);
   };
 
   return (
@@ -16,11 +15,14 @@ const PaymentList = ({ payments, onDelete }) => {
         {payments.map((payment, index) => (
           <li key={index}>
             ${payment.amount} - {payment.date}
-            {showConfirm ? 
-              <button onClick={() => handleDeleteClick(index)}>Confirm Delete</button>
-            :
-              <button onClick={() => setShowConfirm(true)}>Delete</button>
-            }
+            {selectedDeleteIndex === index ? (
+              <>
+                <button onClick={() => handleDeleteClick(index)}>Confirm Delete</button>
+                <button onClick={() => setSelectedDeleteIndex(null)}>Cancel</button>
+              </>
+            ) : (
+              <button onClick={() => setSelectedDeleteIndex(index)}>Delete</button>
+            )}
           </li>
         ))}
       </ul>
