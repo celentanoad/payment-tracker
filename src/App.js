@@ -19,8 +19,6 @@ const App = () => {
   const getProgressPercentage = () => {
     const totalAmountPaid = parseFloat(getTotalAmountPaid(payments).replace('$', '').replace(',', ''));
     const totalAmountGoal = getTotalAmountGoal();
-    console.log(totalAmountPaid);
-    console.log(totalAmountGoal);
     return (totalAmountPaid / totalAmountGoal) * 100;
   };
 
