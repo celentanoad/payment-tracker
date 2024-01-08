@@ -1,11 +1,18 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PaymentForm from './components/PaymentForm';
 import PaymentList from './components/PaymentList';
 
 const App = () => {
-  const [payments, setPayments] = useState([]);
+  const [payments, setPayments] = useState(() => {
+    const storedPayments = localStorage.getItem('payments');
+    return storedPayments ? JSON.parse(storedPayments) : [];
+  });
   const [showPaymentForm, setShowPaymentForm] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('payments', JSON.stringify(payments));
+  }, [payments]);
 
   const getTotalAmountGoal = () => 19750;
 
