@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 const PaymentForm = ({ addPayment, handleClose }) => {
   const [amount, setAmount] = useState('');
-  const [isFocused, setIsFocused] = useState(false);
 
   const handleAddPayment = () => {
     const newPayment = {
@@ -20,20 +19,6 @@ const PaymentForm = ({ addPayment, handleClose }) => {
 
     if (/^\$?\d*\.?\d*$/.test(inputValue)) {
       setAmount(inputValue);
-    }
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-    if (amount === '') {
-      setAmount('$');
-    }
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-    if (amount === '$') {
-      setAmount('');
     }
   };
 
