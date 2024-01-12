@@ -9,6 +9,16 @@ const App = () => {
     return storedPayments ? JSON.parse(storedPayments) : [];
   });
   const [showPaymentForm, setShowPaymentForm] = useState(false);
+  const [remainingAmount, setRemainingAmount] = useState(0);
+
+  const convertToCurrency = (amount) => {
+    return amount.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  }
 
   useEffect(() => {
     localStorage.setItem('payments', JSON.stringify(payments));
@@ -25,13 +35,9 @@ const App = () => {
   const getTotalAmountPaid = (payments) => {
     if (!payments.length) return "$0";
     let totalPayments = payments.reduce((sum, payment) => sum + payment.amount, 0);
+    setRemainingAmount(getTotalAmountGoal() - totalPayments);
 
-    return totalPayments.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    });
+    return convertToCurrency(totalPayments);
   };
 
   const addPayment = (newPayment) => {
@@ -56,6 +62,7 @@ const App = () => {
         <div className="progress-bar" style={{ width: `${getProgressPercentage()}%` }}></div>
       </div>
       <h2 className='sub-header'>Current Payments: {getTotalAmountPaid(payments)}/$19,750</h2>
+      <h3 className='sub-header'>{convertToCurrency(remainingAmount)} Remaining</h3>
       {showPaymentForm  ? 
         <PaymentForm addPayment={addPayment} handleClose={handleClose} />
         :
